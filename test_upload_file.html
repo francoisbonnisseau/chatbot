@@ -10,6 +10,26 @@
     <input type="file">
   <script>
   
+  window.botpressWebChat.onEvent(
+    (event) => {
+      if (event.type === 'MESSAGE.RECEIVED') {
+        alert(event.payload.text);
+      }
+    },
+    ['MESSAGE.RECEIVED']
+  )
+
+
+
+  function sendData() {
+    window.botpressWebChat.sendPayload({
+      type: 'trigger',
+      payload: {
+        name: Name,
+        content: Content,
+      },
+    })
+  }
   </script>
 </body>
 </html>

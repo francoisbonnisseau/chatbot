@@ -10,19 +10,26 @@
     <input type="file">
   <script>
   
-  window.botpressWebChat.onEvent(
-    (event) => {
-      if (event.type === 'MESSAGE.SENT') {
-        console.log('Message sent:')
-      } else if (event.type === 'MESSAGE.RECEIVED') {
-        console.log('Message received:')
-      } else if (event.type === 'MESSAGE.SELECTED') {
-        console.log('Message selected:')
-      }
-    },
-    ['MESSAGE.SENT', 'MESSAGE.RECEIVED', 'MESSAGE.SELECTED']
-  )
+  // window.botpressWebChat.onEvent(
+  //   (event) => {
+  //     if (event.type === 'MESSAGE.SENT') {
+  //       console.log('Message sent:')
+  //     } else if (event.type === 'MESSAGE.RECEIVED') {
+  //       console.log('Message received:')
+  //     } else if (event.type === 'MESSAGE.SELECTED') {
+  //       console.log('Message selected:')
+  //     }
+  //   },
+  //   ['MESSAGE.SENT', 'MESSAGE.RECEIVED', 'MESSAGE.SELECTED']
+  // )
 
+  import { getClient } from '@botpress/webchat'
+ 
+  const client = getClient({ clientId: 'a0558026-9a2d-4890-9eec-545d11e931ef' })
+  
+  client.on("message", (message) => {
+    console.log("Received message", message); // Messages from the bot
+  });
 
 
   function sendData(Name,Content) {

@@ -10,18 +10,18 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         const param1 = params.get('param1');
-        alert(param1)
+        alert(param1);
         window.botpressWebChat.onEvent(
         function(event) {
-          window.botpressWebChat.sendPayload({
-            type: 'trigger',
-            payload: {
-              name : param1
-            }
-          });
+              window.botpressWebChat.sendPayload({
+                type: 'trigger',
+                payload: {
+                  name : param1
+                }
+              });
         },
         ['LIFECYCLE.READY']
-      )
+      );
     </script>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
     <script src="https://mediafiles.botpress.cloud/cf0904da-d501-4075-892f-895dc52f9234/webchat/config.js" defer></script>

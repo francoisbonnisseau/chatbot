@@ -8,9 +8,27 @@
 <body>
     <h1>Heyyyy ohohoo</h1>
     <script>
+        // Récupérer les paramètres de l'URL
         const params = new URLSearchParams(window.location.search);
-        const param1 = params.get('param1');
-        alert(param1);
+        
+        // Initialiser une variable à false par défaut
+        let hasParams = false;
+        
+        // Initialiser un array pour stocker les paramètres
+        const paramsArray = [];
+        
+        // Vérifier s'il y a des paramètres dans l'URL
+        if (params.toString() !== '') {
+            // Si des paramètres existent, définir la variable à true
+            hasParams = true;
+        
+            // Itérer sur chaque paramètre et l'ajouter à l'array
+            params.forEach((value, key) => {
+                paramsArray.push({ nom: key, valeur: value });
+                alert(key);
+            });
+        }
+
     </script>
         <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
 <script>

@@ -13,7 +13,7 @@
   window.botpressWebChat.onEvent(
     (event) => {
       if (event.type === 'MESSAGE.RECEIVED') {
-        alert(event.payload.text);
+        alert(event);
       }
     },
     ['MESSAGE.RECEIVED']
@@ -21,7 +21,7 @@
 
 
 
-  function sendData() {
+  function sendData(Name,Content) {
     window.botpressWebChat.sendPayload({
       type: 'trigger',
       payload: {

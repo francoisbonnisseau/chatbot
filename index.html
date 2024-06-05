@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Heyyyy ohh</h1>
+    <h1>Heyyyy ohoh</h1>
     <script>
         const params = new URLSearchParams(window.location.search);
         const param1 = params.get('param1');
@@ -14,7 +14,7 @@
         window.botpressWebChat.onEvent(
         function(event) {
               window.botpressWebChat.sendPayload({
-                type: 'trigger',
+                type: 'text',
                 payload: {
                   name : param1
                 }

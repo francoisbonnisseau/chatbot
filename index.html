@@ -6,17 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Heyyyy o wh </h1>
-    <script>
-        // Récupérer les paramètres de l'URL
-        const params = new URLSearchParams(window.location.search);
-        const param1 = params.get('param1');
-        alert('param1');
-       
-
-    </script>
+    <h1>Heyyyy o wh g</h1>
         <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
 <script>
+    // Récupérer les paramètres de l'URL
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const name = params.get('name');
+    alert(id);
+    alert(name);
     
     window.botpressWebChat.init({
       "composerPlaceholder": "Chat with bot",
@@ -35,7 +33,8 @@
       "themeColor": "#2563eb",
       "allowedOrigins": [],
       "userData" : {
-          para1 : 'John',
+          customerId : id,
+          customerName : name,
       }
   });
     

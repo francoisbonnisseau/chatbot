@@ -12,11 +12,11 @@
   
   window.botpressWebChat.onEvent(
     (event) => {
-      if (event.type === 'MESSAGE.RECEIVED') {
+      if (event.type === 'MESSAGE.SENT') {
         alert(event);
       }
     },
-    ['MESSAGE.RECEIVED']
+    ['MESSAGE.SENT']
   )
 
 

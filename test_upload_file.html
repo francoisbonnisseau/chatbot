@@ -25,14 +25,6 @@
   //   ['MESSAGE.SENT', 'MESSAGE.RECEIVED', 'MESSAGE.SELECTED']
   // )
 
-  import { getClient } from '@botpress/webchat'
- 
-  const client = getClient({ clientId: 'a0558026-9a2d-4890-9eec-545d11e931ef' })
-  
-  client.on("message", (message) => {
-    console.log("Received message", message); // Messages from the bot
-  });
-
 
   function sendData(Name,Content) {
     window.botpressWebChat.sendPayload({
@@ -43,6 +35,8 @@
       },
     })
   }
+
+  sendData('upload_file', 'text')
   </script>
 
 <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>

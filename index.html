@@ -8,8 +8,9 @@
 <body>
     <h1>Heyyyy</h1>
     <script>
-        const params = new URLSearchParams(window.location.search)
-        const param1 = params.get('param1')
+        const params = new URLSearchParams(window.location.search);
+        const param1 = params.get('param1');
+        alert(param1)
         window.botpressWebChat.init({
           userData: {
             name: param1,

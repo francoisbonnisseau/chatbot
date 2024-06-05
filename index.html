@@ -6,33 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Heyyyy ohohooooooo</h1>
+    <h1>Heyyyy </h1>
     <script>
         // Récupérer les paramètres de l'URL
         const params = new URLSearchParams(window.location.search);
-        
-        // Initialiser une variable à false par défaut
-        const hasParams = false;
-        
-        // Initialiser un array pour stocker les paramètres
-        const paramsArray = [];
-        
-        // Vérifier s'il y a des paramètres dans l'URL
-        if (params.toString() !== '') {
-            // Si des paramètres existent, définir la variable à true
-            hasParams = true;
-        
-            // Itérer sur chaque paramètre et l'ajouter à l'array
-            params.forEach((value, key) => {
-                paramsArray.push({ nom: key, valeur: value });
-                alert(key);
-            });
-        }
+        const param1 = params.get('param1');
+        alert('param1');
+       
 
     </script>
         <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
 <script>
-    if(hasParams){
+    
         window.botpressWebChat.init({
       "composerPlaceholder": "Chat with bot",
       "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
@@ -50,33 +35,10 @@
       "themeColor": "#2563eb",
       "allowedOrigins": [],
       "userData" : {
-          hasParam : hasParams,
           data : paramsArray,
       }
   });
-    }
-    else{
-        window.botpressWebChat.init({
-      "composerPlaceholder": "Chat with bot",
-      "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
-      "botId": "cf0904da-d501-4075-892f-895dc52f9234",
-      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
-      "messagingUrl": "https://messaging.botpress.cloud",
-      "clientId": "cf0904da-d501-4075-892f-895dc52f9234",
-      "webhookId": "cfb54879-77e2-41db-907d-7315ea9fc1e6",
-      "lazySocket": true,
-      "themeName": "prism",
-      "frontendVersion": "v1",
-      "enableConversationDeletion": true,
-      "showPoweredBy": true,
-      "theme": "prism",
-      "themeColor": "#2563eb",
-      "allowedOrigins": [],
-        "userData" : {
-          hasParam : hasParams,
-        }
-  });
-    }
+    
   
 </script>
     </script>

@@ -12,7 +12,13 @@
   
   window.botpressWebChat.onEvent(
     (event) => {
-        alert(event);
+      if (event.type === 'MESSAGE.SENT') {
+        console.log('Message sent:', event.preview)
+      } else if (event.type === 'MESSAGE.RECEIVED') {
+        console.log('Message received:', event.preview)
+      } else if (event.type === 'MESSAGE.SELECTED') {
+        console.log('Message selected:', event.preview)
+      }
     },
     ['MESSAGE.SENT', 'MESSAGE.RECEIVED', 'MESSAGE.SELECTED']
   )

@@ -13,12 +13,11 @@
         alert(param1);
         window.botpressWebChat.onEvent(
         function(event) {
-              window.botpressWebChat.sendPayload({
-                type: 'text',
-                payload: {
-                  name : param1
-                }
-              });
+              window.botpressWebChat.init({
+                  userData: {
+                    name: 'Jack Black',
+                  },
+                })
         },
         ['LIFECYCLE.READY']
       );

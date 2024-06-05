@@ -6,23 +6,35 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Heyyyy ohoh</h1>
+    <h1>Heyyyy ohohoo</h1>
     <script>
         const params = new URLSearchParams(window.location.search);
         const param1 = params.get('param1');
         alert(param1);
-        window.botpressWebChat.onEvent(
-        function(event) {
-              window.botpressWebChat.init({
-                  userData: {
-                    name: 'Jack Black',
-                  },
-                })
-        },
-        ['LIFECYCLE.READY']
-      );
     </script>
-    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-    <script src="https://mediafiles.botpress.cloud/cf0904da-d501-4075-892f-895dc52f9234/webchat/config.js" defer></script>
+        <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+<script>
+  window.botpressWebChat.init({
+      "composerPlaceholder": "Chat with bot",
+      "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
+      "botId": "cf0904da-d501-4075-892f-895dc52f9234",
+      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+      "messagingUrl": "https://messaging.botpress.cloud",
+      "clientId": "cf0904da-d501-4075-892f-895dc52f9234",
+      "webhookId": "cfb54879-77e2-41db-907d-7315ea9fc1e6",
+      "lazySocket": true,
+      "themeName": "prism",
+      "frontendVersion": "v1",
+      "enableConversationDeletion": true,
+      "showPoweredBy": true,
+      "theme": "prism",
+      "themeColor": "#2563eb",
+      "allowedOrigins": [],
+      "userData" : {
+          name: param1;
+      }
+  });
+</script>
+    </script>
     </body>
 </html>

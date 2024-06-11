@@ -83,18 +83,18 @@
                   reader.readAsArrayBuffer(file);
                 } else {
                   reader.readAsText(file);
+                  //send data to the bot
+                  window.botpressWebChat.sendPayload({
+                    type: 'trigger',
+                    payload: {
+                      name: title,
+                      content: fileContent,
+                    },
+                  })
                 }
               });
               fileInput.click();
 
-              //send data to the bot
-              window.botpressWebChat.sendPayload({
-                type: 'trigger',
-                payload: {
-                  name: title,
-                  content: fileContent,
-                },
-              })
             }
           }
         }

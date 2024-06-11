@@ -59,8 +59,8 @@
                 reader.onload = function(event) {
                   const fileContent = event.target.result;
                   const lines = fileContent.split('\n');
-                  const title = lines[0];
-                  const content = lines.slice(1).join('\n');
+                  const title = file.name;
+                  const content = lines.slice(0).join('\n');
                   console.log('Title:', title);
                   console.log('Content:', content);
                 };

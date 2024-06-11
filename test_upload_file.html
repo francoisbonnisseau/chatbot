@@ -30,6 +30,12 @@
       function (event) {
         if (event.type === 'LIFECYCLE.LOADED') {
           window.botpressWebChat.sendEvent({ type: 'show' })
+          window.botpressWebChat.sendPayload({
+            type: 'trigger',
+            payload: {
+              myCustomProperty: 'test',
+            },
+          })
         }
       },
       ['LIFECYCLE.LOADED']

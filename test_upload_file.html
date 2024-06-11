@@ -46,7 +46,7 @@
     window.botpressWebChat.onEvent(
       (event) => {
         if (event.type === 'MESSAGE.RECEIVED') {
-          console.log('A new message was received!')
+          console.log('A new message was received! : ', event)
         }
       },
       ['MESSAGE.RECEIVED']

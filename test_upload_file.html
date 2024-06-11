@@ -10,14 +10,36 @@
   <!-- https://francoisbonnisseau.github.io/chatbot/test_upload_file.html -->
     <h1>test12</h1>
     <input type="file">
+    <button id="myButton">Click Me!</button>
   <script>
 
+    function handleClick() {
+      console.log('Button clicked!')
+      window.botpressWebChat.sendPayload({
+        type: 'trigger',
+        payload: {
+          myCustomProperty: 'hello',
+        },
+      })
+    }
+
+    const button = document.getElementById('myButton')
+    button.addEventListener('click', handleClick)
+
+    window.botpressWebChat.onEvent(
+      function (event) {
+        if (event.type === 'LIFECYCLE.LOADED') {
+          window.botpressWebChat.sendEvent({ type: 'show' })
+        }
+      },
+      ['LIFECYCLE.LOADED']
+    )
 
 
-  window.botpressWebChat.onEvent(event => {
-    alert('event');
-  },
-  ['TRIGGER'])
+  // window.botpressWebChat.onEvent(event => {
+  //   alert('event');
+  // },
+  // ['TRIGGER'])
   
   // window.botpressWebChat.onEvent(
   //   (event) => {

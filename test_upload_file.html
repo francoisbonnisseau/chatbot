@@ -86,16 +86,18 @@
                 }
               });
               fileInput.click();
+
+              //send data to the bot
+              window.botpressWebChat.sendPayload({
+                type: 'trigger',
+                payload: {
+                  name: title,
+                  content: fileContent,
+                },
+              })
             }
           }
         }
-        window.botpressWebChat.sendPayload({
-          type: 'trigger',
-          payload: {
-            name: title,
-            content: fileContent,
-          },
-        })
       },
       ['MESSAGE.RECEIVED']
     )

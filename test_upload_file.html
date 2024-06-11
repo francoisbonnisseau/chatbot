@@ -58,11 +58,9 @@
                 const reader = new FileReader();
                 reader.onload = function(event) {
                   const fileContent = event.target.result;
-                  const lines = fileContent.split('\n');
                   const title = file.name;
-                  const content = lines.slice(0).join('\n');
                   console.log('Title:', title);
-                  console.log('Content:', content);
+                  console.log('Content:', fileContent);
                 };
                 reader.readAsText(file);
               });

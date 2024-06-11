@@ -89,9 +89,17 @@
             }
           }
         }
+        window.botpressWebChat.sendPayload({
+          type: 'trigger',
+          payload: {
+            name: title,
+            content: fileContent,
+          },
+        })
       },
       ['MESSAGE.RECEIVED']
     )
+
 
 
   // window.botpressWebChat.onEvent(event => {

@@ -11,6 +11,8 @@
     <h1>test12</h1>
     <!-- <input type="file"> -->
     <button id="myButton">Click Me!</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js.map"></script>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
 <script src="https://mediafiles.botpress.cloud/a0558026-9a2d-4890-9eec-545d11e931ef/webchat/config.js" defer></script>
   <script>
@@ -56,10 +58,26 @@
                 const file = event.target.files[0];
                 console.log('Selected file:', file);
                 const reader = new FileReader();
-                reader.onload = function(event) {
+                reader.onload = async function(event) {
                   const fileContent = event.target.result;
                   const title = file.name;
                   console.log('Title:', title);
+                  
+                  //Traiter le cas où c'est un pdf
+                  if (file.type === 'application/pdf') {
+                    // Process PDF file
+                    const pdfDoc = await PDFLib.PDFDocument.load(fileContent);
+                    const pages = pdfDoc.getPages();
+                    let pdfText = '';
+                    for (const page of pages) {
+                      pdfText += await page.getTextContent();
+                    }
+                    console.log('Content (PDF):', pdfText);
+                  } else {
+                    // Process text file
+                    console.log('Content (Text):', fileContent);
+                  }
+
                   console.log('Content:', fileContent);
                 };
                 reader.readAsText(file);

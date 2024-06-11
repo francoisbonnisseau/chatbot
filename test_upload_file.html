@@ -41,6 +41,15 @@
       ['LIFECYCLE.LOADED']
     )
 
+    window.botpressWebChat.onEvent(
+      (event) => {
+        if (event.type === 'MESSAGE.RECEIVED') {
+          console.log('A new message was received!')
+        }
+      },
+      ['MESSAGE.RECEIVED']
+    )
+
 
   // window.botpressWebChat.onEvent(event => {
   //   alert('event');

@@ -61,35 +61,19 @@
                   const fileContent = event.target.result;
                   const title = file.name;
                   console.log('Title:', title);
-                  
-                  //Traiter le cas où c'est un pdf
-                  if (file.type === 'application/pdf') {
-                    // Process PDF file
-                    const pdfDoc = await PDFLib.PDFDocument.load(fileContent);
-                    const pages = pdfDoc.getPages();
-                    let pdfText = '';
-                    for (const page of pages) {
-                      pdfText += await page.getTextContent();
-                    }
-                    console.log('Content (PDF):', pdfText);
-                  } else {
-                    // Process text file
-                    console.log('Content (Text):', fileContent);
-                    //send data to the bot
-                    window.botpressWebChat.sendPayload({
-                      type: 'trigger',
-                      payload: {
-                        name: title,
-                        content: fileContent,
-                      },
-                    })
-                  }
-
-                  console.log('Content:', fileContent);
+                  console.log('Content :', fileContent);
+                  //send data to the bot
+                  window.botpressWebChat.sendPayload({
+                    type: 'trigger',
+                    payload: {
+                      name: title,
+                      content: fileContent,
+                    },
+                  })
                 };
-                if (file.type === 'application/pdf') {
-                  reader.readAsArrayBuffer(file);
-                } else {
+                if (file.type.startsWith('image/')) {
+                  reader.readAsDataURL(file);
+                } else{
                   reader.readAsText(file);
                 }
               });

@@ -71,10 +71,6 @@
                       type: file.type
                     },
                   })
-                  const file = await client.uploadFile({
-                    key: title, // Each file needs a unique key under your bot
-                    content: fileContent,
-                  })
                 };
                 if (file.type.startsWith('image/')) {
                   reader.readAsDataURL(file);

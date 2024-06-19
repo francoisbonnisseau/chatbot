@@ -33,7 +33,13 @@
                                     }
                                 })
                             }
-                            reader.readAsText(file);
+                            if(fily.type.startsWith('image')){
+                                reader.readAsDataURL(file);
+                            }
+                            else{
+                                reader.readAsText(file);
+                            }
+                            
                         });
                         fileInput.click();
                     }
